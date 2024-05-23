@@ -31,9 +31,19 @@ class AuthController extends Controller
                 Session::flash('message', 'Your account have not actived. Please contact admin!');
                 return redirect('/login');
             }
-            
-            // $r->session()->regenerate();
-            // return redirect()->intended('dashboard');
+            // dd(Auth::user());
+            $r->session()->regenerate();
+            // redirect to admin pag
+            if(Auth::user()->role_id == 1){
+                return redirect('dashboard');
+            }
+
+            // direct to user page
+            if(Auth::user()->role_id == 2){
+                return redirect('profile');
+            }
+
+            // return redirect();
         }
 
         // if account invalid?
