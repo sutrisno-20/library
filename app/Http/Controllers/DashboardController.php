@@ -9,6 +9,6 @@ class DashboardController extends Controller
     //
     public function index(Request $r) {
         // $r->Session()->flush();
-        return view('/dashboard');
+        return view('dashboard');
     }
 }
